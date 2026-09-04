@@ -125,6 +125,21 @@ title: Why coding is somewhat still hard
     white-space: pre-wrap;
   }
 </style>
+<script>
+  // Splits raw text content in .editor-block into one span per line,
+  // so line numbers work without hand-tagging every line in the markdown.
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("pre.editor-block code").forEach(function (block) {
+      const lines = block.textContent.split("\n");
+      block.innerHTML = lines
+        .map(function (line) {
+          return '<span class="line">' + line + "</span>";
+        })
+        .join("");
+    });
+  });
+</script>
+
 
 <pre class="editor-block"><code>package blog
 // Why coding is somewhat still hard
