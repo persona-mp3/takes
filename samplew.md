@@ -4,6 +4,10 @@ title: Why coding is somewhat still hard
 ---
 
 <style>
+  body, html {
+    background-color: #1a1d23 !important;
+  }
+
   pre.editor-block {
     background-color: #1a1d23;
     color: #e59a5c;
