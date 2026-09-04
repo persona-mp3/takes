@@ -1,7 +1,3 @@
-thoughts
+thoughts on aspects of software engineering
 
-[Code is not easy](./code.md)
-[Code is not easy2](./code2.md)
-[Sample](./editor-style.html)
-
-[Samplew](./samplew.md)
+[Code looks cheap until it isn't](./topics/coding_is_hard.md)
