@@ -16,57 +16,7 @@ title: Why coding is somewhat still hard
     white-space: pre-wrap;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
-  .editor-statusbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #21252b;
-    color: #abb2bf;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px;
-    padding: 4px 14px;
-    border-top: 1px solid #2c313a;
-    border-radius: 0 0 6px 6px;
-    max-width: fit-content;
-  }
-  .editor-statusbar .filename {
-    background-color: #3a3f4b;
-    padding: 2px 10px;
-    border-radius: 3px;
-    margin-right: 12px;
-  }
-  .editor-statusbar .lsp-status {
-    color: #61afef;
-    margin-right: 12px;
-  }
-  .editor-statusbar .lsp-status::before {
-    content: "✓ ";
-    color: #98c379;
-  }
-  .editor-statusbar .cursor-pos {
-    background-color: #e5c07b;
-    color: #1a1d23;
-    padding: 2px 10px;
-    border-radius: 3px;
-    font-weight: 600;
-  }
 </style>
-<script>
-  // Splits raw text content in .editor-block into one span per line,
-  // so line numbers work without hand-tagging every line in the markdown.
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("pre.editor-block code").forEach(function (block) {
-      const lines = block.textContent.split("\n");
-      block.innerHTML = lines
-        .map(function (line) {
-          return '<span class="line">' + line + "</span>";
-        })
-        .join("");
-    });
-  });
-</script>
-
-
 <pre class="editor-block"><code>package blog
 // Why coding is somewhat still hard
 //
@@ -113,8 +63,3 @@ title: Why coding is somewhat still hard
 // really isn't.
 // In the current rewrite of the raft protocol, I've started implementing Interfaces
 </code></pre>
-<div class="editor-statusbar">
-  <span class="filename">code.go</span>
-  <span class="lsp-status">gopls</span>
-  <span class="cursor-pos">1:2</span>
-</div>
