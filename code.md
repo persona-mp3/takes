@@ -1,3 +1,4 @@
+```go
 package blog
 // Why coding is somewhat still hard
 //
@@ -157,3 +158,4 @@ package blog
 // While I've also tried doing the same for time, I haven't commited to doing that
 // yet, but etcd does implement a time/clock abstraction and you should try taking 
 // a look at it too.
+```
