@@ -1,7 +1,7 @@
 # package blog
 ## Why coding is somewhat still hard
 
-Well, you've always heard alot of engineers say 'writing code is the easy 
+Well, you've always heard a lot of engineers say 'writing code is the easy 
 part' and in some way, I think they're right, and also very wrong.
 
 Why I think they could be right is simply because they might be speaking from 
@@ -150,7 +150,7 @@ won the election? How do you test networks?
 
 
 With these little nuggest, you begin to see how your code design and dare i 
-say infrastructure really matters. Look into Will Wilson, CEO Antitheses one 
+say infrastructure really matters. Look into Will Wilson, CEO Antithesis one 
 of engineers of FoundationDB. Look into TigerBettle and how they test their 
 software 
 
