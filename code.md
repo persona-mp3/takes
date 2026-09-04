@@ -1,3 +1,5 @@
+## Code is still hard 
+
 ```go
 package blog
 // Why coding is somewhat still hard
