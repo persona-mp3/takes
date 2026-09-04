@@ -1,0 +1,110 @@
+<!-- <pre class="editor-block"><code><span class="line"><span class="keyword">package</span> blog</span><span class="line comment">// Why coding is somewhat still hard</span></code></pre> -->
+<!-- <div class="editor-statusbar"> -->
+<!--   <span class="filename">code.go</span> -->
+<!--   <span class="lsp-status">gopls</span> -->
+<!--   <span class="cursor-pos">1:2</span> -->
+<!-- </div> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Code Example</title>
+<style>
+  body {
+    background-color: #0d0f13;
+    margin: 0;
+    padding: 40px;
+  }
+
+  pre.editor-block {
+    background-color: #1a1d23;
+    color: #d4d4d4;
+    font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    border-radius: 6px;
+    padding: 0;
+    overflow-x: auto;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  pre.editor-block code {
+    display: block;
+    padding: 16px 20px;
+    counter-reset: line;
+  }
+
+  pre.editor-block .line {
+    display: block;
+    position: relative;
+    padding-left: 3em;
+  }
+
+  pre.editor-block .line::before {
+    counter-increment: line;
+    content: counter(line);
+    position: absolute;
+    left: 0;
+    width: 2.5em;
+    text-align: right;
+    color: #4b5263;
+    user-select: none;
+  }
+
+  pre.editor-block .keyword { color: #ff79c6; }
+  pre.editor-block .comment { color: #e59a5c; }
+  pre.editor-block .string  { color: #9ece6a; }
+  pre.editor-block .type    { color: #7aa2f7; }
+
+  .editor-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #21252b;
+    color: #abb2bf;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    padding: 4px 14px;
+    border-top: 1px solid #2c313a;
+    border-radius: 0 0 6px 6px;
+    max-width: fit-content;
+  }
+
+  .editor-statusbar .filename {
+    background-color: #3a3f4b;
+    padding: 2px 10px;
+    border-radius: 3px;
+    margin-right: 12px;
+  }
+
+  .editor-statusbar .lsp-status {
+    color: #61afef;
+    margin-right: 12px;
+  }
+
+  .editor-statusbar .lsp-status::before {
+    content: "✓ ";
+    color: #98c379;
+  }
+
+  .editor-statusbar .cursor-pos {
+    background-color: #e5c07b;
+    color: #1a1d23;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<pre class="editor-block"><code><span class="line"><span class="keyword">package</span> blog</span><span class="line comment">// Why coding is somewhat still hard</span></code></pre>
+<div class="editor-statusbar">
+  <span class="filename">code.go</span>
+  <span class="lsp-status">gopls</span>
+  <span class="cursor-pos">1:2</span>
+</div>
+
+</body>
+</html>
