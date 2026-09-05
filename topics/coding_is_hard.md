@@ -17,8 +17,8 @@ can sometimes come out as too clever, no coherent layers of abstraction or
 just strange things. 
 We've tried to circumvent this through the use of 'SKILLS' or 'Agentic' stuff, 
 but that just feels like a problem being patched instead of solved, where we 
-try and bend it towards somthing of 'taste', 'best practices'
-inside a non-determinsitic space
+try and bend it towards something of 'taste', 'best practices' for something, again
+that is non-determinsitic
 
 This really gets painful, the lower the stack you go.  For this example,
 you don't really have to use LLMs, in fact I dare you to do it yourself.
@@ -32,13 +32,13 @@ which is written in Go.
 For the first whole working version of the distributed storage engine, the Raft
 codebase was a mess, and every milestone, I'd set aside time to refactor some 
 aspect. I would start with deciding what part of the protocol needed to be done 
-next, do a rough scaffold, and the when the bit has finally working, I would
+next, do a rough scaffold, and the when the bit finally started working, I would
 take a step back and refactor it to make it look better, maintainable and more 
 'extensible'. But I promise you, this can only work for so long, before you 
 debate on becoming a farmer.
-While there are 'Design Patterns', those are really general ideas that help i
-in the grandscheme of sketching a picture, but you don't get the lines out of 
-it. (at least in my experience). For example looking into the storage engine 
+While there are 'Design Patterns', those are really general ideas that help in
+the grandscheme of sketching a picture, but you don't get the detailed lines out of 
+it (at least in my experience). For example looking into the storage engine 
 concurrency model the single writer could look like an Actor Pattern, but it
 really isn't.
 
@@ -47,8 +47,8 @@ In the current rewrite of the raft protocol, I've started implementing Interface
 mostly with the goal of opting into Deterministic Simulation Testing (DST), which
 might look like 'Mocking' or 'Fault Injection', but it really isn't. 
 While these patterns are REALLY helpful to know, it's mostly always sometimes 
-a better to arrive to these things from first principles, because your project 
-needs it.
+a better to arrive at these things from first principles, because your project 
+needed it. 
 
 
 
@@ -81,8 +81,10 @@ on it. How do we write good docs? How do we make sure they don't lie and are
 up to date? How do we maintain them? Because for some reason, some docs really 
 do need jira tickets assigned to them, otherwise you have someone changing 
 some parts of the code, and can only be caught in some code review, which could
-have being prevented in the first place if the dev knew. I don't really have 
-a solution to this.
+have being prevented in the first place if the dev had something to tell it 
+'DO NOT DELETE, ALL YOU'LL REGRET IT'. I don't really have a solution to this.
+And I'm very open to hearing about how your do it for your projects or your 
+solutions to this
 Whether you like it or not, you begin to rely on documentation more than the 
 code as it grows heavily. I had written a custom tool for infra and deplopyment 
 for my initial raft protocol onto different servers and locally. I did have 
@@ -117,41 +119,44 @@ Question it, evaluate it like an idiot, give enough context is what I would say
 ### 3. Testability
 ---
 I don't really like writing tests, just to preface that.
-Well, I think this is also another thing gone wrong in the industry. We always 
-scream TDD, BDD, write tests! pipeline must green! test failing! coverage 100% test 
+And, I think this is also another thing that has slightly gone wrong in the industry.
+We always scream TDD, BDD, write tests! pipeline must green! test failing! coverage 100% test 
 must be! But after adding 50 tests that just tests things in a _when i implemented
 it, it was working_ , you'll see that all 100 of you test files all look similar
 While one size doesn't fit all, I think there's also some nuances to this 
 too. And I'll talk about them later on.
 First, tests should be not only be approached by `is this working within my 
 assumptions and my rules?` but how `how do i find an edgecase that flips the 
-world upside down?`. Property testing or fuzz testing are good examples of this
+world upside down?`. Property testing or fuzz testing are good answers to 
+look into
 
 
-A good example is a friend of mine who worked for a US company mentioned they 
-had an issue where a periodic batch process broke because of hex characters found 
-in the data users provided because they copied and pasted text from other sources 
-(I don't know how they got hex characters but that is really funny). 
+A good example is a friend of mine who was working on a project, mentioned they 
+had an issue where a scheduled program processes data. Well on one very faithful night, 
+it broke. It broke because of hex characters found in the data users provided 
+Where did the customers get hex characters from? From copying and pasting text from other sources 
 As a dev, your mind wouldn't even think about that possibilty. So all the ascii 
-validation and stuff lets it through. 
+validation and regex lets it through. 
 
-But I beleive that if there was a way they wrote tests that included 
-non-ascii or utf8 characters or even some of the most obsure inputs that still 
-fall into the range of a 'text', that shouldn't be allowed, they could have 
-anticipated the bug or at least expected it
+But he said that that if there was a way they wrote tests that included 
+non-ascii or utf8 characters or even some of the most obsure inputs that could pass 
+as a string or fall into the range of a 'text', that shouldn't be allowed, 
+they could have anticipated the bug or at least expected it. Now I'm not 
+saying you should including property testing in work that  you do, but there
+should be this offensive side to testing that needs to be introduced.
 
 
 Secondly. Put more test effort on what is hard to get right, and has alot of 
 invariants. For example, how do you test that a node in the network while 
-it's in an Election state, it does not give out it's Vote to another node 
+it's in an Election state, it does not give out its Vote to another node 
 in an Election state. But also drops down to a Follower if someone has already 
 won the election? How do you test networks? 
 
 
-With these little nuggest, you begin to see how your code design and dare i 
-say infrastructure really matters. Look into Will Wilson, CEO Antithesis one 
-of engineers of FoundationDB. Look into TigerBettle and how they test their 
-software 
+With these little nuggets, you begin to see how your code design matters 
+and dare I say infrastructure really matters. Look into Will Wilson, CEO Antithesis one 
+of engineers of FoundationDB. Look into TigerBettle and how they test their software 
+
 
 
 On the little nuances, not every project needs Property based testing, neither 
@@ -169,9 +174,8 @@ be running and hammer nodes, or hijack the whole cluster. But now, I've been
 looking to using interfaces for abstracting the network layer. So that I can
 easily peice a fake one during tests. Using Go makes this much an easier feat 
 in terms of interfaces.
-While I've also tried doing the same for time, I haven't commited to doing that
-yet, but etcd does implement a time/clock abstraction and you should try taking 
-a look at it too.
+While I've also experimented with doing the same for time, I haven't fully commited to doing 
+that yet at least for this project, but etcd does implement a time/clock abstraction 
 
 
 Closing statement
