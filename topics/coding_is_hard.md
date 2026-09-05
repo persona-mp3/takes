@@ -1,13 +1,16 @@
+# package blog
 ## Why coding is somewhat still hard
 
 Well, you've always heard a lot of engineers say 'writing code is the easy 
 part' and in some way, I think they're right, and also very wrong.
 
-Why I think they could be right is simply because they might be speaking from 
-within their domain of operation and experience. And then later on moved to 
-roles that demanded And I also think that's also 
-wrong. Code looks cheap until it isn't
 
+I think they could be right because they moved across a different domain of thinking. 
+For example, thinking about what the next line of code to write is different 
+from deciding what database to choose for of your application depending on reads 
+vs writes. It would make sense to say coding is easy part, from that perspective 
+But from a broader perspective, that's simply not true. 
+Code looks cheap and easy, until it isn't
 
 ### 1. Interfaces
 ---
@@ -184,6 +187,7 @@ While I do have a couple more to share on this like
 - Error Handling
 - Logging
 - Extensibility
+- Debugging
 
 
 The cases discussed are the core things to remove this guise that coding has 
