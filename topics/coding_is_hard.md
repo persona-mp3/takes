@@ -183,6 +183,7 @@ While I do have a couple more to share on this like
 - Error Handling
 - Logging
 - Extensibility
+- Debugging
 
 
 The cases discussed are the core things to remove this guise that coding has 
