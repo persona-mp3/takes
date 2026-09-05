@@ -1,4 +1,3 @@
-# package blog
 ## Why coding is somewhat still hard
 
 Well, you've always heard a lot of engineers say 'writing code is the easy 
