@@ -1,0 +1,17 @@
+Btw in the AOF file,  line 33, you dont need to hold a mutex if all 
+you're doing is File.Sync(), all operations on file can done 
+from different goroutines by default
+[source of truth](https://pkg.go.dev/os#File)
+
+And instead of using time.Sleep(), you can use a ticker 
+ticker := time.NewTicker(1 * time.Second)
+go func() {
+	defer ticker.Stop()
+	for {
+		<-ticker.C
+		if err := aof.File.Sync(); err != nil {
+			log.Println(err)
+			return
+		}
+	}
+}()
